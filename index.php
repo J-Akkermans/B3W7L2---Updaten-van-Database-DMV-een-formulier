@@ -1,7 +1,6 @@
 <?php
     include 'resources/Functions/db_connection.php';
     include 'resources/functions/function.php';
-    $allChars = selectAll("characters");
     // $data = $pdo->query( "SELECT `id`,`name`,`attack`,`avatar`,`health`,`defense` FROM `characters` ORDER BY `characters`.`name` ASC" );
 ?>
 
@@ -19,8 +18,7 @@
 </header>
 <div id="container">
 <?php 
-foreach ($allChars as $CharData) {
-
+foreach (selectAll("characters") as $CharData) {
     ?>
     <a class="item" href="character.php?id=<?php echo $CharData['id'] ?>">
         <div class="left">

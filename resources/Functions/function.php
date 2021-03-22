@@ -25,14 +25,21 @@
             $data = $sth->fetch(PDO::FETCH_ASSOC);
             return $data;
         }
-
-        // $arrayName = selectIndivual("characters", "1");
+        function selectAllLocations(){
+            global $sth;
+            global $pdo;
+            $sth = $pdo->prepare("SELECT * FROM `locations`");
+            $sth->execute();
+            $data = $sth->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
+        // function updateLocation(){
+        //     global $sth;
+        //     global $pdo;
+        //     $sth = $pdo->prepare("INSERT INTO characters (location) SELECT Name FROM locations WHERE name='{$test}'");
+        //     $sth->execute();
+        // }
         
-
-        
-        // echo $test[0]['avatar'];
-       
-
-
-        
+        $selectOption = $_POST['selectStatement'];
+        echo $selectOption;
 ?>
