@@ -20,7 +20,7 @@
         function selectIndivual($table, $id){
             global $sth;
             global $pdo;
-            $sth = $pdo->prepare("SELECT `name`,`avatar`, `health`, `bio`, `color`, `attack`, `defense`, `weapon`, `armor`FROM {$table} where id='{$id}'");
+            $sth = $pdo->prepare("SELECT `id`,`name`,`avatar`, `health`, `bio`, `color`, `attack`, `defense`, `weapon`, `armor`FROM {$table} where id='{$id}'");
             $sth->execute();
             $data = $sth->fetch(PDO::FETCH_ASSOC);
             return $data;
@@ -33,13 +33,18 @@
             $data = $sth->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
-        // function updateLocation(){
-        //     global $sth;
-        //     global $pdo;
-        //     $sth = $pdo->prepare("INSERT INTO characters (location) SELECT Name FROM locations WHERE name='{$test}'");
-        //     $sth->execute();
-        // }
+
+        function update(){
+            global $sth;
+            global $pdo;
+            echo $_POST['selectStatement'];
+            echo $_GET['id'];
+            $sth = $pdo->prepare("UPDATE characters SET location='{$_POST['selectStatement']}' WHERE id ='{$_GET['id']}'");
+            $sth->execute();
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            update();
+        }
+      
         
-        $selectOption = $_POST['selectStatement'];
-        echo $selectOption;
 ?>

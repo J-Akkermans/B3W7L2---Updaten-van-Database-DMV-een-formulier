@@ -38,13 +38,13 @@
                     <ul class="gear">
                         <?php if($CharData['weapon'] != NULL){ ?>
                         <li>
-                            <b>Weapon</b>: Fire Breath
+                            <b>Weapon</b>: <?php echo $CharData['weapon'] ?>
                         </li>
                         <?php }?>
 
                         <?php if($CharData['armor'] != NULL){ ?>
                         <li>
-                            <b>Armor</b>: Giant Shell
+                            <b>Armor</b>: <?php echo $CharData['armor'] ?>
                         </li>
                         <?php }?>
                     </ul>
@@ -62,7 +62,7 @@
                 <?php 
                     foreach (selectAllLocations() as $row) {
                     echo $row['id'];?>
-                    <option value="<?php echo $row['name'];?>"> <?php echo $row['name']; ?></option>
+                    <option value="<?php echo $row['id'];?>"> <?php echo $row['name']; ?></option>
                 <?php }
                 ?>
                 </select>

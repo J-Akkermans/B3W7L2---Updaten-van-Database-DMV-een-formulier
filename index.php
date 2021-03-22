@@ -1,7 +1,6 @@
 <?php
     include 'resources/Functions/db_connection.php';
     include 'resources/functions/function.php';
-    // $data = $pdo->query( "SELECT `id`,`name`,`attack`,`avatar`,`health`,`defense` FROM `characters` ORDER BY `characters`.`name` ASC" );
 ?>
 
 <!DOCTYPE html>
