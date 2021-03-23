@@ -35,11 +35,15 @@
         }
 
         function update(){
+            if(isset($_GET["id"])){
+                $person_id = $_GET['id'];
+            } else{
+                $person_id = 0;
+            }     
             global $sth;
             global $pdo;
-            echo $_POST['selectStatement'];
-            echo $_GET['id'];
-            $sth = $pdo->prepare("UPDATE characters SET location='{$_POST['selectStatement']}' WHERE id ='{$_GET['id']}'");
+            $sth = $pdo->prepare("UPDATE characters SET location='{$_POST['selectStatement']}' WHERE id =:id");
+            $sth->bindParam(":id", $person_id);
             $sth->execute();
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
